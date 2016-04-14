@@ -1,25 +1,47 @@
-//
-//  ViewController.swift
-//  IIU Health
-//
-//  Created by Greg Ledbetter on 4/13/16.
-//  Copyright © 2016 IIU. All rights reserved.
-//
+import ResearchKit
 
-import UIKit
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+class ViewController: UIViewController, ORKTaskViewControllerDelegate {
+  
+  @IBAction func consentTapped(sender : AnyObject) {
+    let taskViewController = ORKTaskViewController(task: ConsentTask, taskRunUUID: nil)
+    taskViewController.delegate = self
+    presentViewController(taskViewController, animated: true, completion: nil)
+  }
+  
+  @IBAction func surveyTapped(sender : AnyObject) {
+    let taskViewController = ORKTaskViewController(task: SurveyTask(), taskRunUUID: nil)
+    taskViewController.delegate = self
+    presentViewController(taskViewController, animated: true, completion: nil)
+  }
+  
+  @IBAction func microphoneTapped(sender : AnyObject) {
+    let taskViewController = ORKTaskViewController(task: MicrophoneTask, taskRunUUID: nil)
+    taskViewController.delegate = self
+    taskViewController.outputDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0], isDirectory: true)
+    presentViewController(taskViewController, animated: true, completion: nil)
+  }
+    
+    @IBAction func authorizeTapped(sender: AnyObject) {
+        HealthKitManager.authorizeHealthKit()
+    }
+  
+    @IBAction func walkTapped(sender: AnyObject) {
+        let taskViewController = ORKTaskViewController(task: WalkTask, taskRunUUID: nil)
+        taskViewController.delegate = self
+        taskViewController.outputDirectory = NSURL(fileURLWithPath:
+            NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0],
+                                                   isDirectory: true)
+        presentViewController(taskViewController, animated: true, completion: nil)
+        HealthKitManager.startMockHeartData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    
+    HealthKitManager.stopMockHeartData()
+    if (reason != .Failed) {
+      taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
-
-
+  }
+    
+    
 }
-
