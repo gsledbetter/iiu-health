@@ -3,7 +3,7 @@ import HealthKit
 
 class HealthKitManager: NSObject {
     
-    static let healthKitStore = HKHealthStore()
+    static let hkStore = HKHealthStore()
     static var timer: NSTimer?
     
     static func authorizeHealthKit() {
@@ -13,7 +13,7 @@ class HealthKitManager: NSObject {
             HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)!
         ]
         
-        healthKitStore.requestAuthorizationToShareTypes(healthKitTypes,
+        hkStore.requestAuthorizationToShareTypes(healthKitTypes,
                                                         readTypes: healthKitTypes) { _, _ in }
     }
     
@@ -21,13 +21,12 @@ class HealthKitManager: NSObject {
         
         // create a heart rate BPM Sample
         let heartRateType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!
-        let heartRateQuantity = HKQuantity(unit: HKUnit(fromString: "count/min"),
-                                           doubleValue: Double(arc4random_uniform(80) + 100))
+        let heartRateQuantity = HKQuantity(unit: HKUnit(fromString: "count/min"), doubleValue: Double(arc4random_uniform(80) + 100))
         let heartSample = HKQuantitySample(type: heartRateType,
                                            quantity: heartRateQuantity, startDate: NSDate(), endDate: NSDate())
         
-        // cave the sample in the store
-        healthKitStore.saveObject(heartSample, withCompletion: { (success, error) -> Void in
+        // save sample to store
+        hkStore.saveObject(heartSample, withCompletion: { (success, error) -> Void in
             if let error = error {
                 print("Error saving heart sample: \(error.localizedDescription)")
             }
