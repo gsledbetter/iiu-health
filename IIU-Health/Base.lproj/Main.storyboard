@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -55,6 +55,16 @@
                                     <action selector="authorizeTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oZ9-Cz-sGa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypi-bh-FgC">
+                                <rect key="frame" x="250" y="348" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="FmF-UZ-DqT"/>
+                                </constraints>
+                                <state key="normal" title="Dashboard"/>
+                                <connections>
+                                    <segue destination="AIJ-NK-enH" kind="show" id="ffA-h9-bQR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,15 +73,85 @@
                             <constraint firstItem="gsz-CN-Cc7" firstAttribute="centerX" secondItem="gxQ-bb-lAw" secondAttribute="centerX" id="YxH-3J-GPg"/>
                             <constraint firstItem="gxQ-bb-lAw" firstAttribute="top" secondItem="w5v-P0-DLw" secondAttribute="bottom" constant="28" id="brS-Q4-T2I"/>
                             <constraint firstItem="gsz-CN-Cc7" firstAttribute="top" secondItem="Sa6-Gx-kzM" secondAttribute="bottom" constant="30" id="duj-SA-U94"/>
+                            <constraint firstItem="Ypi-bh-FgC" firstAttribute="centerX" secondItem="w5v-P0-DLw" secondAttribute="centerX" id="dw8-EJ-djI"/>
                             <constraint firstItem="w5v-P0-DLw" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="icM-Ix-WCV"/>
                             <constraint firstItem="gxQ-bb-lAw" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="kuU-9F-NXU"/>
                             <constraint firstItem="w5v-P0-DLw" firstAttribute="top" secondItem="gsz-CN-Cc7" secondAttribute="bottom" constant="34" id="mq3-TZ-lha"/>
+                            <constraint firstItem="Ypi-bh-FgC" firstAttribute="top" secondItem="gxQ-bb-lAw" secondAttribute="bottom" constant="33" id="ypF-yc-r5P"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="605"/>
+            <point key="canvasLocation" x="876" y="563"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="xgI-Pg-4tn">
+            <objects>
+                <tableViewController id="AIJ-NK-enH" customClass="DashboardViewController" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pkj-Ls-4y9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Mn2-2k-gvE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="230" id="NwJ-w8-G52">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NwJ-w8-G52" id="tMj-Ga-y1l">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLq-vx-v33" customClass="ORKPieChartView">
+                                                    <rect key="frame" x="8" y="31" width="584" height="272"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kLq-vx-v33" firstAttribute="trailing" secondItem="tMj-Ga-y1l" secondAttribute="trailingMargin" id="Kt7-oU-8rh"/>
+                                                <constraint firstAttribute="bottom" secondItem="kLq-vx-v33" secondAttribute="bottom" id="Tr6-gT-gCn"/>
+                                                <constraint firstItem="kLq-vx-v33" firstAttribute="top" secondItem="tMj-Ga-y1l" secondAttribute="topMargin" constant="23" id="e0H-Oo-nSx"/>
+                                                <constraint firstItem="kLq-vx-v33" firstAttribute="leading" secondItem="tMj-Ga-y1l" secondAttribute="leadingMargin" id="fue-2D-Xw5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="370" id="Lww-zj-Gop">
+                                        <rect key="frame" x="0.0" y="230" width="600" height="370"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lww-zj-Gop" id="zaQ-F8-Zqm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="md4-7X-Lar" customClass="ORKLineGraphChartView">
+                                                    <rect key="frame" x="8" y="8" width="584" height="354"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="md4-7X-Lar" firstAttribute="top" secondItem="zaQ-F8-Zqm" secondAttribute="topMargin" id="9e9-fh-zOF"/>
+                                                <constraint firstItem="md4-7X-Lar" firstAttribute="trailing" secondItem="zaQ-F8-Zqm" secondAttribute="trailingMargin" id="S7O-qm-HCO"/>
+                                                <constraint firstItem="md4-7X-Lar" firstAttribute="leading" secondItem="zaQ-F8-Zqm" secondAttribute="leadingMargin" id="oJW-rd-gUz"/>
+                                                <constraint firstItem="md4-7X-Lar" firstAttribute="bottom" secondItem="zaQ-F8-Zqm" secondAttribute="bottomMargin" id="pHh-LW-A2l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="AIJ-NK-enH" id="rSw-ql-Met"/>
+                            <outlet property="delegate" destination="AIJ-NK-enH" id="yEb-f3-hBI"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="lineGraphView" destination="md4-7X-Lar" id="6YW-b8-u3P"/>
+                        <outlet property="pieChartView" destination="kLq-vx-v33" id="rtG-si-eoj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEG-jv-4JK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="564"/>
         </scene>
     </scenes>
 </document>
