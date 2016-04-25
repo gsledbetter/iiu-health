@@ -3,7 +3,7 @@ import ResearchKit
 public var WalkTask: ORKOrderedTask {
     return ORKOrderedTask.fitnessCheckTaskWithIdentifier("WalkTask",
                                                          intendedUseDescription: nil,
-                                                         walkDuration: 30 as NSTimeInterval,
-                                                         restDuration: 30 as NSTimeInterval,
+                                                         walkDuration: 10 as NSTimeInterval,
+                                                         restDuration: 2 as NSTimeInterval,
                                                          options: .None)
 }

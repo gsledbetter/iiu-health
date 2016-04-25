@@ -15,6 +15,9 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     @IBOutlet weak var pieChartView: ORKPieChartView!
     @IBOutlet weak var lineGraphView: ORKLineGraphChartView!
     
+    var pedDataStore:PedDataStore!
+    var pedDateFormatter:NSDateFormatter
+
     
     var plotPoints =
         [
@@ -38,6 +41,16 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
             ]
     ]
     
+    required init(coder aDecoder: NSCoder) {
+        
+        pedDateFormatter = NSDateFormatter()
+        pedDateFormatter.dateFormat = "MM/dd HH:mm:ss"
+
+        super.init(coder: aDecoder)!
+        
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +58,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
         
         // pie chart view configuration
         pieChartView.dataSource = self
-        pieChartView.title = NSLocalizedString("Daily Activity Completion", comment: "")
+        pieChartView.title = NSLocalizedString("IIU Health Dashboard", comment: "")
         pieChartView.showsTitleAboveChart = true
         
         let dateFormatter = NSDateFormatter()
@@ -61,6 +74,8 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
         lineGraphView.showsHorizontalReferenceLines = true
         lineGraphView.showsVerticalReferenceLines = true
         lineGraphView.scrubberLineColor = UIColor.redColor()
+        
+
 
     }
     
@@ -109,23 +124,26 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     func graphChartView(graphChartView: ORKGraphChartView, pointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKRangedPoint {
         
-        return plotPoints[plotIndex][pointIndex]
+        //return plotPoints[plotIndex][pointIndex]
+        let point = pedDataStore.getPedDataAtIndex(pointIndex)?.steps
+        return ORKRangedPoint(value:CGFloat(point!))
     }
     
     func graphChartView(graphChartView: ORKGraphChartView, numberOfPointsForPlotIndex plotIndex: Int) -> Int {
-        return plotPoints[plotIndex].count
+        // return plotPoints[plotIndex].count
+        return pedDataStore.getPedDataCount()
     }
     
     // Optional methods
     
     // Returns the number of points to the graph chart view
     func numberOfPlotsInGraphChartView(graphChartView: ORKGraphChartView) -> Int {
-        return plotPoints.count
+        return 1
     }
     
     // Sets the maximum value on the y axis
     func maximumValueForGraphChartView(graphChartView: ORKGraphChartView) -> CGFloat {
-        return 1000
+        return 20
     }
     
     // Sets the minimum value on the y axis
@@ -135,24 +153,28 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     // Provides titles for x axis
     func graphChartView(graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
-        switch pointIndex {
-        case 0:
-            return "Mon"
-        case 1:
-            return "Tue"
-        case 2:
-            return "Wed"
-        case 3:
-            return "Thu"
-        case 4:
-            return "Fri"
-        case 5:
-            return "Sat"
-        case 6:
-            return "Sun"
-        default:
-            return "Day \(pointIndex + 1)"
-        }
+//        switch pointIndex {
+//        case 0:
+//            return "Mon"
+//        case 1:
+//            return "Tue"
+//        case 2:
+//            return "Wed"
+//        case 3:
+//            return "Thu"
+//        case 4:
+//            return "Fri"
+//        case 5:
+//            return "Sat"
+//        case 6:
+//            return "Sun"
+//        default:
+//            return "Day \(pointIndex + 1)"
+//        }
+        
+        let collectionDate = pedDataStore.getPedDataAtIndex(pointIndex)?.collectionDate
+        return pedDateFormatter.stringFromDate(collectionDate!)
+        
     }
     
     // Returns the color for the given plot index

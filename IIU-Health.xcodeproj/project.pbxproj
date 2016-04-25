@@ -16,6 +16,8 @@
 		378278411CC1854D00F344FF /* ResultsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378278401CC1854D00F344FF /* ResultsParser.swift */; };
 		37A30B431CC0373000F8BADB /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30B421CC0373000F8BADB /* HealthKitManager.swift */; };
 		37AC2F231CC02C3F002BB6D5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AC2F221CC02C3F002BB6D5 /* HealthKit.framework */; };
+		37B12EA51CC9796D00656C68 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B12E981CC92CAD00656C68 /* SwiftyJSON.framework */; };
+		37B12EA61CC9796D00656C68 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B12E981CC92CAD00656C68 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37B44DAD1CBECFEC00569716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DAC1CBECFEC00569716 /* AppDelegate.swift */; };
 		37B44DB11CBED01500569716 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DAE1CBED01500569716 /* ConsentDocument.swift */; };
 		37B44DB21CBED01500569716 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DAF1CBED01500569716 /* ConsentTask.swift */; };
@@ -23,6 +25,8 @@
 		37B44DB71CBED06900569716 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB51CBED06900569716 /* SurveyTask.swift */; };
 		37B44DBA1CBED07100569716 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB81CBED07100569716 /* ViewController.swift */; };
 		37B44DBB1CBED07100569716 /* WalkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB91CBED07100569716 /* WalkTask.swift */; };
+		37FB303E1CCDD3AD00DB86BB /* PedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */; };
+		37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB30471CCE67FD00DB86BB /* PedDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,62 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
+		37B12E971CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		37B12E991CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFE619575BE100351305;
+			remoteInfo = "SwiftyJSON iOS Tests";
+		};
+		37B12E9B1CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC5B1A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON OSX";
+		};
+		37B12E9D1CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC651A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON OSX Tests";
+		};
+		37B12E9F1CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4D7CCE81B9465A700EE7221;
+			remoteInfo = "SwiftyJSON watchOS";
+		};
+		37B12EA11CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7236B4F61BAC14150020529B;
+			remoteInfo = "SwiftyJSON tvOS";
+		};
+		37B12EA31CC92CAD00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
+			remoteInfo = "SwiftyJSON tvOS Tests";
+		};
+		37B12EA71CC9796D00656C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +116,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				37B12EA61CC9796D00656C68 /* SwiftyJSON.framework in Embed Frameworks */,
 				3752A8421CC52CCF0088863C /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -75,6 +136,7 @@
 		37A30B421CC0373000F8BADB /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		37AC2F221CC02C3F002BB6D5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		37AC2F241CC02C3F002BB6D5 /* IIU-Health.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "IIU-Health.entitlements"; sourceTree = "<group>"; };
+		37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../Downloads/SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		37B44DAC1CBECFEC00569716 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B44DAE1CBED01500569716 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		37B44DAF1CBED01500569716 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
@@ -83,6 +145,8 @@
 		37B44DB51CBED06900569716 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		37B44DB81CBED07100569716 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37B44DB91CBED07100569716 /* WalkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkTask.swift; sourceTree = "<group>"; };
+		37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerData.swift; sourceTree = "<group>"; };
+		37FB30471CCE67FD00DB86BB /* PedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +156,7 @@
 			files = (
 				3752A8411CC52CCF0088863C /* ResearchKit.framework in Frameworks */,
 				37AC2F231CC02C3F002BB6D5 /* HealthKit.framework in Frameworks */,
+				37B12EA51CC9796D00656C68 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +175,7 @@
 		3768E17B1CBEC6E5002E4A1E = {
 			isa = PBXGroup;
 			children = (
+				37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */,
 				3752A8361CC529580088863C /* ResearchKit.xcodeproj */,
 				37AC2F221CC02C3F002BB6D5 /* HealthKit.framework */,
 				3768E1861CBEC6E5002E4A1E /* IIU-Health */,
@@ -144,8 +210,24 @@
 				3768E1931CBEC6E5002E4A1E /* Info.plist */,
 				378278401CC1854D00F344FF /* ResultsParser.swift */,
 				3752A84C1CC64EE00088863C /* DashboardViewController.swift */,
+				37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */,
+				37FB30471CCE67FD00DB86BB /* PedDataStore.swift */,
 			);
 			path = "IIU-Health";
+			sourceTree = "<group>";
+		};
+		37B12E8C1CC92CAD00656C68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37B12E981CC92CAD00656C68 /* SwiftyJSON.framework */,
+				37B12E9A1CC92CAD00656C68 /* SwiftyJSON iOS Tests.xctest */,
+				37B12E9C1CC92CAD00656C68 /* SwiftyJSON.framework */,
+				37B12E9E1CC92CAD00656C68 /* SwiftyJSON OSX Tests.xctest */,
+				37B12EA01CC92CAD00656C68 /* SwiftyJSON.framework */,
+				37B12EA21CC92CAD00656C68 /* SwiftyJSON.framework */,
+				37B12EA41CC92CAD00656C68 /* SwiftyJSON tvOS Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +246,7 @@
 			);
 			dependencies = (
 				3752A8441CC52CCF0088863C /* PBXTargetDependency */,
+				37B12EA81CC9796D00656C68 /* PBXTargetDependency */,
 			);
 			name = "IIU-Health";
 			productName = "IIU Health";
@@ -207,6 +290,10 @@
 					ProductGroup = 3752A8371CC529580088863C /* Products */;
 					ProjectRef = 3752A8361CC529580088863C /* ResearchKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 37B12E8C1CC92CAD00656C68 /* Products */;
+					ProjectRef = 37B12E8B1CC92CAD00656C68 /* SwiftyJSON.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -228,6 +315,55 @@
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
 			remoteRef = 3752A83E1CC529580088863C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12E981CC92CAD00656C68 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 37B12E971CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12E9A1CC92CAD00656C68 /* SwiftyJSON iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON iOS Tests.xctest";
+			remoteRef = 37B12E991CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12E9C1CC92CAD00656C68 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 37B12E9B1CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12E9E1CC92CAD00656C68 /* SwiftyJSON OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON OSX Tests.xctest";
+			remoteRef = 37B12E9D1CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12EA01CC92CAD00656C68 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 37B12E9F1CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12EA21CC92CAD00656C68 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 37B12EA11CC92CAD00656C68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37B12EA41CC92CAD00656C68 /* SwiftyJSON tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON tvOS Tests.xctest";
+			remoteRef = 37B12EA31CC92CAD00656C68 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -255,9 +391,11 @@
 				378278411CC1854D00F344FF /* ResultsParser.swift in Sources */,
 				37A30B431CC0373000F8BADB /* HealthKitManager.swift in Sources */,
 				37B44DB71CBED06900569716 /* SurveyTask.swift in Sources */,
+				37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */,
 				37B44DBB1CBED07100569716 /* WalkTask.swift in Sources */,
 				37B44DB21CBED01500569716 /* ConsentTask.swift in Sources */,
 				3752A84D1CC64EE00088863C /* DashboardViewController.swift in Sources */,
+				37FB303E1CCDD3AD00DB86BB /* PedometerData.swift in Sources */,
 				37B44DBA1CBED07100569716 /* ViewController.swift in Sources */,
 				37B44DB11CBED01500569716 /* ConsentDocument.swift in Sources */,
 			);
@@ -270,6 +408,11 @@
 			isa = PBXTargetDependency;
 			name = ResearchKit;
 			targetProxy = 3752A8431CC52CCF0088863C /* PBXContainerItemProxy */;
+		};
+		37B12EA81CC9796D00656C68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyJSON iOS";
+			targetProxy = 37B12EA71CC9796D00656C68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

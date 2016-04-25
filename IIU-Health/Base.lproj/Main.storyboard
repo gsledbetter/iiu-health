@@ -62,7 +62,7 @@
                                 </constraints>
                                 <state key="normal" title="Dashboard"/>
                                 <connections>
-                                    <segue destination="AIJ-NK-enH" kind="show" id="ffA-h9-bQR"/>
+                                    <segue destination="AIJ-NK-enH" kind="show" identifier="showDashboard" id="ffA-h9-bQR"/>
                                 </connections>
                             </button>
                         </subviews>
