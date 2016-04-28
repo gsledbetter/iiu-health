@@ -12,6 +12,11 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     
     }
     
+    override func viewDidLoad() {
+        self.title = "IIU Health"
+    }
+    
+    
     @IBAction func consentTapped(sender : AnyObject) {
         
         let taskViewController = ORKTaskViewController(task: ConsentTask, taskRunUUID: nil)
@@ -61,7 +66,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
         if (taskViewController.task?.identifier == "WalkTask"
             && reason == .Completed) {
             
-            // ResultParser.findWalkHeartFiles(taskViewController.result)
+            ResultParser.findWalkHeartFiles(taskViewController.result)
             if let pedData = ResultParser.getPedDataFromWalkTask(taskViewController.result) {
                 pedDataStore.addPedData(pedData)
             }

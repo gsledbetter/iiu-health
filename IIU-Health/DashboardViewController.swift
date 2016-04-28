@@ -44,7 +44,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     required init(coder aDecoder: NSCoder) {
         
         pedDateFormatter = NSDateFormatter()
-        pedDateFormatter.dateFormat = "MM/dd HH:mm:ss"
+        pedDateFormatter.dateFormat = "HH:mm"
 
         super.init(coder: aDecoder)!
         
@@ -74,8 +74,6 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
         lineGraphView.showsHorizontalReferenceLines = true
         lineGraphView.showsVerticalReferenceLines = true
         lineGraphView.scrubberLineColor = UIColor.redColor()
-        
-
 
     }
     
@@ -143,7 +141,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     // Sets the maximum value on the y axis
     func maximumValueForGraphChartView(graphChartView: ORKGraphChartView) -> CGFloat {
-        return 20
+        return 160
     }
     
     // Sets the minimum value on the y axis
