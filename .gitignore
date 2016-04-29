@@ -111,3 +111,11 @@ project.xcworkspace
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
 # ...none. Everything is now explained.
+
+.DS_Store
+
+####
+# Carthage - A simple, decentralized dependency manager for Cocoa
+#
+Carthage.pkg
+Carthage/Build
