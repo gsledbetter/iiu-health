@@ -54,16 +54,17 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Dashboard"
         activityCompletionPercentage = 80
         
         // pie chart view configuration
         pieChartView.dataSource = self
-        pieChartView.title = NSLocalizedString("IIU Health Dashboard", comment: "")
+        pieChartView.title = NSLocalizedString("Activities Completed", comment: "")
         pieChartView.showsTitleAboveChart = true
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle
-        pieChartView.text  = dateFormatter.stringFromDate(NSDate())
+        pieChartView.text  = "As of " + dateFormatter.stringFromDate(NSDate())
         
         // line graph view configuration
         lineGraphView.dataSource = self

@@ -117,5 +117,5 @@ project.xcworkspace
 ####
 # Carthage - A simple, decentralized dependency manager for Cocoa
 #
-Carthage.pkg
 Carthage/Build
+Carthage/Checkouts
