@@ -1,4 +1,4 @@
 github "ResearchKit/ResearchKit"
-
 github "SwiftyJSON/SwiftyJSON"
+github "realm/realm-cocoa"
 

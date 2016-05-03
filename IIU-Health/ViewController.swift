@@ -3,11 +3,11 @@ import SwiftyJSON
 
 class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     
-    var pedDataStore:PedDataStore
+    var taskResultsStore:TaskResultsStore
     
     required init(coder aDecoder: NSCoder) {
         
-        pedDataStore = PedDataStore()
+        taskResultsStore = TaskResultsStore()
         super.init(coder: aDecoder)!
     
     }
@@ -51,7 +51,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     
     @IBAction func walkTapped(sender: AnyObject) {
     
-        let taskViewController = ORKTaskViewController(task: WalkTask, taskRunUUID: nil)
+        let taskViewController = ORKTaskViewController(task: FitnessCheckTask, taskRunUUID: nil)
         taskViewController.delegate = self
         taskViewController.outputDirectory = NSURL(fileURLWithPath:
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0],
@@ -63,13 +63,9 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         
         // HealthKitManager.stopMockHeartData()
-        if (taskViewController.task?.identifier == "WalkTask"
-            && reason == .Completed) {
+        if (taskViewController.task?.identifier == FitnessCheckTaskId && reason == .Completed) {
             
-            ResultParser.findWalkHeartFiles(taskViewController.result)
-            if let pedData = ResultParser.getPedDataFromWalkTask(taskViewController.result) {
-                pedDataStore.addPedData(pedData)
-            }
+            self.taskResultsStore.storeFitnessCheckData(taskViewController.result)
             
         }
 
@@ -82,7 +78,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDashboard" {
             let vc = segue.destinationViewController as! DashboardViewController
-            vc.pedDataStore = self.pedDataStore
+            vc.taskResultsStore = self.taskResultsStore
             
         } 
         

@@ -15,7 +15,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     @IBOutlet weak var pieChartView: ORKPieChartView!
     @IBOutlet weak var lineGraphView: ORKLineGraphChartView!
     
-    var pedDataStore:PedDataStore!
+    var taskResultsStore:TaskResultsStore!
     var pedDateFormatter:NSDateFormatter
 
     
@@ -123,21 +123,27 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     func graphChartView(graphChartView: ORKGraphChartView, pointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKRangedPoint {
         
-        //return plotPoints[plotIndex][pointIndex]
-        let point = pedDataStore.getPedDataAtIndex(pointIndex)?.steps
-        return ORKRangedPoint(value:CGFloat(point!))
+        switch plotIndex {
+        case 0:
+            let point = taskResultsStore.getPedDataAtIndex(pointIndex)?.steps
+            return ORKRangedPoint(value:CGFloat(point!))
+        default:
+            let point = taskResultsStore.getHeartDataAtIndex(pointIndex)?.countsPerMinute
+            return ORKRangedPoint(value:CGFloat(point!))
+
+        }
     }
     
     func graphChartView(graphChartView: ORKGraphChartView, numberOfPointsForPlotIndex plotIndex: Int) -> Int {
         // return plotPoints[plotIndex].count
-        return pedDataStore.getPedDataCount()
+        return taskResultsStore.getPedDataCount()
     }
     
     // Optional methods
     
     // Returns the number of points to the graph chart view
     func numberOfPlotsInGraphChartView(graphChartView: ORKGraphChartView) -> Int {
-        return 1
+        return 2
     }
     
     // Sets the maximum value on the y axis
@@ -171,7 +177,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
 //            return "Day \(pointIndex + 1)"
 //        }
         
-        let collectionDate = pedDataStore.getPedDataAtIndex(pointIndex)?.collectionDate
+        let collectionDate = taskResultsStore.getPedDataAtIndex(pointIndex)?.collectionDate
         return pedDateFormatter.stringFromDate(collectionDate!)
         
     }

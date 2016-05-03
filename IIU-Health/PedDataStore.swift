@@ -19,20 +19,5 @@ class PedDataStore {
         
     }
     
-    func addPedData(pedData:PedometerData) {
-        pedDataPoints.append(pedData)
-    }
-    
-    func getPedDataCount() -> Int {
-        return pedDataPoints.count
-    }
-    
-    func getPedDataAtIndex(index:Int) -> PedometerData? {
-        
-        if  index < pedDataPoints.count {
-            return pedDataPoints[index]
-        }
-        return nil
-    }
     
 }
