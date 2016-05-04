@@ -9,23 +9,63 @@
 import Foundation
 import ResearchKit
 
-class TaskResultsStore {
+class TaskResultsStore: NSObject, NSCoding {
     
-    var pedDataPoints:[PedometerData]
-    var heartDataPoints:[HeartRateData]
+    var firstName: String
+    var lastName: String
+    var pedData:[PedometerData]
+    var heartData:[HeartRateData]
     var resultsParser:ResultParser
     
-    init() {
-        
-        pedDataPoints = []
-        heartDataPoints = []
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("taskResults")
+    
+    override init() {
+        firstName = ""
+        lastName = ""
+        pedData = [PedometerData]()
+        heartData = [HeartRateData]()
         resultsParser = ResultParser()
+        super.init()
+
+    }
+    
+    init(firstName: String, lastName:String, pedData:[PedometerData], heartData:[HeartRateData]) {
+        
+        self.firstName = firstName
+        self.lastName = lastName
+        self.pedData = pedData
+        self.heartData = heartData
+        resultsParser = ResultParser()
+
+    }
+    
+    required convenience init?(coder decoder: NSCoder) {
+        guard let firstName = decoder.decodeObjectForKey("firstName") as? String,
+            let lastName = decoder.decodeObjectForKey("lastName") as? String,
+            let pedData = decoder.decodeObjectForKey("pedData") as? [PedometerData],
+            let heartData = decoder.decodeObjectForKey("heartData") as? [HeartRateData]
+            else { return nil }
+        self.init(
+        firstName: firstName,
+        lastName: lastName,
+        pedData: pedData,
+        heartData: heartData
+        )
+        
+    
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.firstName, forKey: "firstName")
+        coder.encodeObject(self.lastName, forKey: "lastName")
+        coder.encodeObject(self.pedData, forKey:"pedData")
+        coder.encodeObject(self.heartData, forKey:"heartData")
 
     }
     
     func storeFitnessCheckData(result: ORKTaskResult) {
 
-        //resultsParser.parseFitnessCheckResults(result)
         if let pedData = resultsParser.getFitnessCheckPedData(result) {
             addPedData(pedData)
         }
@@ -33,37 +73,36 @@ class TaskResultsStore {
             addHeartData(heartData)
         }
         
-        
     }
     
     func addPedData(pedData:PedometerData) {
-        pedDataPoints.append(pedData)
+        self.pedData.append(pedData)
     }
     
     func addHeartData(heartData:HeartRateData) {
-        heartDataPoints.append(heartData)
+        self.heartData.append(heartData)
     }
     
     func getPedDataCount() -> Int {
-        return pedDataPoints.count
+        return pedData.count
     }
     
     func getHeartDataCount() -> Int {
-        return heartDataPoints.count
+        return heartData.count
     }
     
     func getPedDataAtIndex(index:Int) -> PedometerData? {
         
-        if  index < pedDataPoints.count {
-            return pedDataPoints[index]
+        if  index < pedData.count {
+            return pedData[index]
         }
         return nil
     }
 
     func getHeartDataAtIndex(index:Int) -> HeartRateData? {
         
-        if  index < heartDataPoints.count {
-            return heartDataPoints[index]
+        if  index < heartData.count {
+            return heartData[index]
         }
         return nil
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct HeartRateData {
+class HeartRateData:  NSObject, NSCoding {
     
     var countsPerMinute:Int
     var collectionDate:NSDate
@@ -19,5 +19,20 @@ struct HeartRateData {
         self.collectionDate = timestamp
         self.countsPerMinute = value
     }
+    
+    required convenience init?(coder decoder: NSCoder) {
+        guard let collectionDate = decoder.decodeObjectForKey("collectionDate") as? NSDate
+            else { return nil }
+        
+        self.init(value:decoder.decodeIntegerForKey("countsPerMinute"), timestamp: collectionDate)
+    }
+    
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeInt(Int32(self.countsPerMinute), forKey: "countsPerMinute")
+        coder.encodeObject(self.collectionDate, forKey: "collectionDate")
+        
+    }
+
     
 }

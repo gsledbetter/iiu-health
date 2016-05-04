@@ -19,32 +19,10 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     var pedDateFormatter:NSDateFormatter
 
     
-    var plotPoints =
-        [
-            [
-                ORKRangedPoint(value: 200),
-                ORKRangedPoint(value: 450),
-                ORKRangedPoint(value: 500),
-                ORKRangedPoint(value: 250),
-                ORKRangedPoint(value: 300),
-                ORKRangedPoint(value: 600),
-                ORKRangedPoint(value: 300),
-            ],
-            [
-                ORKRangedPoint(value: 100),
-                ORKRangedPoint(value: 350),
-                ORKRangedPoint(value: 400),
-                ORKRangedPoint(value: 150),
-                ORKRangedPoint(value: 200),
-                ORKRangedPoint(value: 500),
-                ORKRangedPoint(value: 400),
-            ]
-    ]
-    
     required init(coder aDecoder: NSCoder) {
         
         pedDateFormatter = NSDateFormatter()
-        pedDateFormatter.dateFormat = "HH:mm"
+        pedDateFormatter.dateFormat = "H:mm"
 
         super.init(coder: aDecoder)!
         
@@ -136,7 +114,14 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     func graphChartView(graphChartView: ORKGraphChartView, numberOfPointsForPlotIndex plotIndex: Int) -> Int {
         // return plotPoints[plotIndex].count
-        return taskResultsStore.getPedDataCount()
+        if plotIndex == 0 {
+            return taskResultsStore.getPedDataCount()
+        } else if plotIndex == 1 {
+            return taskResultsStore.getHeartDataCount()
+
+        }
+        
+        return 0
     }
     
     // Optional methods
@@ -158,27 +143,11 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
     
     // Provides titles for x axis
     func graphChartView(graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {
-//        switch pointIndex {
-//        case 0:
-//            return "Mon"
-//        case 1:
-//            return "Tue"
-//        case 2:
-//            return "Wed"
-//        case 3:
-//            return "Thu"
-//        case 4:
-//            return "Fri"
-//        case 5:
-//            return "Sat"
-//        case 6:
-//            return "Sun"
-//        default:
-//            return "Day \(pointIndex + 1)"
-//        }
         
-        let collectionDate = taskResultsStore.getPedDataAtIndex(pointIndex)?.collectionDate
-        return pedDateFormatter.stringFromDate(collectionDate!)
+
+            let collectionDate = taskResultsStore.getPedDataAtIndex(pointIndex)?.collectionDate
+            return pedDateFormatter.stringFromDate(collectionDate!)
+            
         
     }
     

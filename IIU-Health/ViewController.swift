@@ -14,6 +14,11 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     
     override func viewDidLoad() {
         self.title = "IIU Health"
+        if let storedTaskResultsStore = loadTaskResults() {
+            taskResultsStore = storedTaskResultsStore
+        } else {
+            taskResultsStore = TaskResultsStore()
+        }
     }
     
     
@@ -22,6 +27,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
         let taskViewController = ORKTaskViewController(task: ConsentTask, taskRunUUID: nil)
         taskViewController.delegate = self
         presentViewController(taskViewController, animated: true, completion: nil)
+        
         
     }
     
@@ -67,6 +73,8 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
             
             self.taskResultsStore.storeFitnessCheckData(taskViewController.result)
             
+            saveTaskResults()
+            
         }
 
         if (reason != .Failed) {
@@ -82,6 +90,23 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
             
         } 
         
+    }
+    
+    // MARK: NSCoding
+
+    func saveTaskResults() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(taskResultsStore, toFile: TaskResultsStore.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save task results...")
+        }
+    }
+    
+    func loadTaskResults() -> TaskResultsStore? {
+        print("Loading Task Results from file \(TaskResultsStore.ArchiveURL.path!)")
+        if let savedTaskResults = NSKeyedUnarchiver.unarchiveObjectWithFile(TaskResultsStore.ArchiveURL.path!) as? TaskResultsStore {
+            return savedTaskResults
+        }
+        return nil
     }
 
     

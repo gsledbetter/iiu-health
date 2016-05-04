@@ -15,32 +15,6 @@ class ResultParser {
     
 
     
-//    func parseFitnessCheckResults(result: ORKTaskResult) -> [NSURL] {
-//        
-//        let walkResultsIndex = 3
-//        let restResultsIndex = 4
-//        
-//        var urls = [NSURL]()
-//        
-//        if let results = result.results
-//            where results.count > 4,
-//            let walkResult = results[walkResultsIndex] as? ORKStepResult,
-//            let restResult = results[restResultsIndex] as? ORKStepResult {
-//            
-//            if let pedFileUrl = getPedometerFileURL(walkResult) {
-//                getFitnessCheckPedData(pedFileUrl)
-//                
-//            }
-//            if let heartRateFileUrl = getPedometerFileURL(walkResult) {
-//                printWalkTaskPedometerData(heartRateFileUrl)
-//                
-//            }
-//
-//        }
-//        
-//        return urls
-//    }
-    
     func getFitnessCheckPedData(result: ORKTaskResult) -> PedometerData?  {
         
         if let results = result.results
@@ -109,7 +83,7 @@ class ResultParser {
                 
                 if nameComponents.first == "HKQuantityTypeIdentifierHeartRate" {
                     url = resultFileUrl
-                    print ("Fitness Check Heart Rate URLS = \(url)")
+                    print ("Fitness Check Heart Rate URL = \(url)")
                     
                 }
                 
