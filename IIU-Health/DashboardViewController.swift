@@ -23,7 +23,7 @@ class DashboardViewController: UITableViewController, ORKPieChartViewDataSource 
         
         pedDateFormatter = NSDateFormatter()
         pedDateFormatter.dateFormat = "H:mm"
-
+        taskResultsStore = TaskResults.sharedInstance.taskResultsStore
         super.init(coder: aDecoder)!
         
     }

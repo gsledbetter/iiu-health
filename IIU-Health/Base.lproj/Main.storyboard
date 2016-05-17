@@ -127,8 +127,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLq-vx-v33" customClass="ORKPieChartView">
-                                                    <rect key="frame" x="8" y="31" width="584" height="272"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLq-vx-v33" customClass="ORKPieChartView">
+                                                    <rect key="frame" x="8" y="31" width="584" height="199"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -193,7 +193,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NA8-WN-mSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="563"/>
+            <point key="canvasLocation" x="739" y="8"/>
         </scene>
     </scenes>
 </document>

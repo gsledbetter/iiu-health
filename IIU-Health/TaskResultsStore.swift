@@ -16,7 +16,11 @@ class TaskResultsStore: NSObject, NSCoding {
     var pedData:[PedometerData]
     var heartData:[HeartRateData]
     var resultsParser:ResultParser
+    var consentComplete:Bool
+    var fitnessCheckComplete:Bool
+    var surveyComplete:Bool
     
+    static let sharedInstance = TaskResultsStore()
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("taskResults")
     
@@ -25,17 +29,23 @@ class TaskResultsStore: NSObject, NSCoding {
         lastName = ""
         pedData = [PedometerData]()
         heartData = [HeartRateData]()
+        consentComplete = false
+        fitnessCheckComplete = false
+        surveyComplete = false
         resultsParser = ResultParser()
         super.init()
 
     }
     
-    init(firstName: String, lastName:String, pedData:[PedometerData], heartData:[HeartRateData]) {
+    init(firstName: String, lastName:String, pedData:[PedometerData], heartData:[HeartRateData], consentComplete:Bool, fitnessCheckComplete:Bool, surveyComplete:Bool) {
         
         self.firstName = firstName
         self.lastName = lastName
         self.pedData = pedData
         self.heartData = heartData
+        self.consentComplete = consentComplete
+        self.fitnessCheckComplete = fitnessCheckComplete
+        self.surveyComplete = surveyComplete
         resultsParser = ResultParser()
 
     }
@@ -50,7 +60,12 @@ class TaskResultsStore: NSObject, NSCoding {
         firstName: firstName,
         lastName: lastName,
         pedData: pedData,
-        heartData: heartData
+        heartData: heartData,
+        consentComplete: decoder.decodeBoolForKey("consentComplete"),
+        fitnessCheckComplete: decoder.decodeBoolForKey("fitnessCheckComplete"),
+        surveyComplete: decoder.decodeBoolForKey("surveyComplete")
+
+
         )
         
     
@@ -61,6 +76,9 @@ class TaskResultsStore: NSObject, NSCoding {
         coder.encodeObject(self.lastName, forKey: "lastName")
         coder.encodeObject(self.pedData, forKey:"pedData")
         coder.encodeObject(self.heartData, forKey:"heartData")
+        coder.encodeBool(self.consentComplete, forKey: "consentComplete")
+        coder.encodeBool(self.fitnessCheckComplete, forKey: "fitnessCheckComplete")
+        coder.encodeBool(self.surveyComplete, forKey: "surveyComplete")
 
     }
     

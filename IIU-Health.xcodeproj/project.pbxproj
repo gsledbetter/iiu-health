@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371FB7F31CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */; };
+		371FB7F51CEAC16500BC03A4 /* TaskSurveyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FB7F41CEAC16500BC03A4 /* TaskSurveyCell.swift */; };
+		3739A6E41CE3B367008973B8 /* TaskHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739A6E31CE3B367008973B8 /* TaskHeaderCell.swift */; };
+		3739A6E61CE3BD8F008973B8 /* TaskConsentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739A6E51CE3BD8F008973B8 /* TaskConsentCell.swift */; };
 		3752A84D1CC64EE00088863C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752A84C1CC64EE00088863C /* DashboardViewController.swift */; };
 		375463091CD39559007E4C44 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375463071CD39559007E4C44 /* SwiftyJSON.framework */; };
 		3754630A1CD39559007E4C44 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 375463071CD39559007E4C44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,6 +31,9 @@
 		37B44DB71CBED06900569716 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB51CBED06900569716 /* SurveyTask.swift */; };
 		37B44DBA1CBED07100569716 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB81CBED07100569716 /* ViewController.swift */; };
 		37B44DBB1CBED07100569716 /* FitnessCheckTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DB91CBED07100569716 /* FitnessCheckTask.swift */; };
+		37C6E2EC1CDD29D300DD4967 /* TaskBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C6E2EB1CDD29D300DD4967 /* TaskBar.storyboard */; };
+		37DD7A701CE98D380068D4A8 /* TaskResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD7A6F1CE98D380068D4A8 /* TaskResults.swift */; };
+		37F886E11CDA6DE3005E277E /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F886E01CDA6DE3005E277E /* TasksTableViewController.swift */; };
 		37FB303E1CCDD3AD00DB86BB /* PedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */; };
 		37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB30471CCE67FD00DB86BB /* PedDataStore.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +54,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskFitnessCheckCell.swift; sourceTree = "<group>"; };
+		371FB7F41CEAC16500BC03A4 /* TaskSurveyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSurveyCell.swift; sourceTree = "<group>"; };
+		3739A6E31CE3B367008973B8 /* TaskHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskHeaderCell.swift; sourceTree = "<group>"; };
+		3739A6E51CE3BD8F008973B8 /* TaskConsentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskConsentCell.swift; sourceTree = "<group>"; };
 		3752A84C1CC64EE00088863C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		375463071CD39559007E4C44 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		375463081CD39559007E4C44 /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
@@ -68,6 +79,9 @@
 		37B44DB51CBED06900569716 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		37B44DB81CBED07100569716 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37B44DB91CBED07100569716 /* FitnessCheckTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessCheckTask.swift; sourceTree = "<group>"; };
+		37C6E2EB1CDD29D300DD4967 /* TaskBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TaskBar.storyboard; sourceTree = "<group>"; };
+		37DD7A6F1CE98D380068D4A8 /* TaskResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResults.swift; sourceTree = "<group>"; };
+		37F886E01CDA6DE3005E277E /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerData.swift; sourceTree = "<group>"; };
 		37FB30471CCE67FD00DB86BB /* PedDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,25 +122,32 @@
 		3768E1861CBEC6E5002E4A1E /* IIU-Health */ = {
 			isa = PBXGroup;
 			children = (
-				37A30B421CC0373000F8BADB /* HealthKitManager.swift */,
-				37AC2F241CC02C3F002BB6D5 /* IIU-Health.entitlements */,
-				37B44DB81CBED07100569716 /* ViewController.swift */,
-				37B44DB91CBED07100569716 /* FitnessCheckTask.swift */,
-				37B44DB41CBED06900569716 /* MicrophoneTask.swift */,
-				37B44DB51CBED06900569716 /* SurveyTask.swift */,
-				37B44DAE1CBED01500569716 /* ConsentDocument.swift */,
-				37B44DAF1CBED01500569716 /* ConsentTask.swift */,
-				3768E18B1CBEC6E5002E4A1E /* Main.storyboard */,
 				37B44DAC1CBECFEC00569716 /* AppDelegate.swift */,
 				3768E18E1CBEC6E5002E4A1E /* Assets.xcassets */,
-				3768E1901CBEC6E5002E4A1E /* LaunchScreen.storyboard */,
-				3768E1931CBEC6E5002E4A1E /* Info.plist */,
-				378278401CC1854D00F344FF /* ResultsParser.swift */,
+				37B44DAE1CBED01500569716 /* ConsentDocument.swift */,
+				37B44DAF1CBED01500569716 /* ConsentTask.swift */,
 				3752A84C1CC64EE00088863C /* DashboardViewController.swift */,
-				37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */,
-				37FB30471CCE67FD00DB86BB /* PedDataStore.swift */,
-				377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */,
+				37B44DB91CBED07100569716 /* FitnessCheckTask.swift */,
+				37A30B421CC0373000F8BADB /* HealthKitManager.swift */,
 				377F48E71CD7E8920078C526 /* HeartRateData.swift */,
+				37AC2F241CC02C3F002BB6D5 /* IIU-Health.entitlements */,
+				3768E1931CBEC6E5002E4A1E /* Info.plist */,
+				3768E1901CBEC6E5002E4A1E /* LaunchScreen.storyboard */,
+				3768E18B1CBEC6E5002E4A1E /* Main.storyboard */,
+				37B44DB41CBED06900569716 /* MicrophoneTask.swift */,
+				37FB30471CCE67FD00DB86BB /* PedDataStore.swift */,
+				37FB303D1CCDD3AD00DB86BB /* PedometerData.swift */,
+				378278401CC1854D00F344FF /* ResultsParser.swift */,
+				37B44DB51CBED06900569716 /* SurveyTask.swift */,
+				37C6E2EB1CDD29D300DD4967 /* TaskBar.storyboard */,
+				3739A6E51CE3BD8F008973B8 /* TaskConsentCell.swift */,
+				3739A6E31CE3B367008973B8 /* TaskHeaderCell.swift */,
+				37DD7A6F1CE98D380068D4A8 /* TaskResults.swift */,
+				377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */,
+				37F886E01CDA6DE3005E277E /* TasksTableViewController.swift */,
+				37B44DB81CBED07100569716 /* ViewController.swift */,
+				371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */,
+				371FB7F41CEAC16500BC03A4 /* TaskSurveyCell.swift */,
 			);
 			path = "IIU-Health";
 			sourceTree = "<group>";
@@ -197,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C6E2EC1CDD29D300DD4967 /* TaskBar.storyboard in Resources */,
 				3768E1921CBEC6E5002E4A1E /* LaunchScreen.storyboard in Resources */,
 				3768E18F1CBEC6E5002E4A1E /* Assets.xcassets in Resources */,
 				3768E18D1CBEC6E5002E4A1E /* Main.storyboard in Resources */,
@@ -229,16 +251,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B44DB61CBED06900569716 /* MicrophoneTask.swift in Sources */,
+				37DD7A701CE98D380068D4A8 /* TaskResults.swift in Sources */,
 				37B44DAD1CBECFEC00569716 /* AppDelegate.swift in Sources */,
 				378278411CC1854D00F344FF /* ResultsParser.swift in Sources */,
 				377F48E61CD79B9A0078C526 /* TaskResultsStore.swift in Sources */,
 				37A30B431CC0373000F8BADB /* HealthKitManager.swift in Sources */,
 				37B44DB71CBED06900569716 /* SurveyTask.swift in Sources */,
+				3739A6E61CE3BD8F008973B8 /* TaskConsentCell.swift in Sources */,
+				37F886E11CDA6DE3005E277E /* TasksTableViewController.swift in Sources */,
 				37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */,
 				37B44DBB1CBED07100569716 /* FitnessCheckTask.swift in Sources */,
+				3739A6E41CE3B367008973B8 /* TaskHeaderCell.swift in Sources */,
+				371FB7F31CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift in Sources */,
 				37B44DB21CBED01500569716 /* ConsentTask.swift in Sources */,
 				3752A84D1CC64EE00088863C /* DashboardViewController.swift in Sources */,
 				377F48E81CD7E8920078C526 /* HeartRateData.swift in Sources */,
+				371FB7F51CEAC16500BC03A4 /* TaskSurveyCell.swift in Sources */,
 				37FB303E1CCDD3AD00DB86BB /* PedometerData.swift in Sources */,
 				37B44DBA1CBED07100569716 /* ViewController.swift in Sources */,
 				37B44DB11CBED01500569716 /* ConsentDocument.swift in Sources */,

@@ -4,21 +4,22 @@ import SwiftyJSON
 class ViewController: UIViewController, ORKTaskViewControllerDelegate {
     
     var taskResultsStore:TaskResultsStore
+
     
     required init(coder aDecoder: NSCoder) {
         
-        taskResultsStore = TaskResultsStore()
+        taskResultsStore = TaskResults.sharedInstance.taskResultsStore
         super.init(coder: aDecoder)!
     
     }
     
     override func viewDidLoad() {
         self.title = "IIU Health"
-        if let storedTaskResultsStore = loadTaskResults() {
-            taskResultsStore = storedTaskResultsStore
-        } else {
-            taskResultsStore = TaskResultsStore()
-        }
+//        if let storedTaskResultsStore = loadTaskResults() {
+//            taskResultsStore = storedTaskResultsStore
+//        } else {
+//            taskResultsStore = TaskResultsStore()
+//        }
     }
     
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
         taskViewController.delegate = self
         presentViewController(taskViewController, animated: true, completion: nil)
         
-        
+
     }
     
     @IBAction func surveyTapped(sender : AnyObject) {
@@ -72,8 +73,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
         if (taskViewController.task?.identifier == FitnessCheckTaskId && reason == .Completed) {
             
             self.taskResultsStore.storeFitnessCheckData(taskViewController.result)
-            
-            saveTaskResults()
+            TaskResults.sharedInstance.saveTaskResults()
             
         }
 
@@ -92,22 +92,25 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate {
         
     }
     
-    // MARK: NSCoding
-
-    func saveTaskResults() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(taskResultsStore, toFile: TaskResultsStore.ArchiveURL.path!)
-        if !isSuccessfulSave {
-            print("Failed to save task results...")
-        }
-    }
     
-    func loadTaskResults() -> TaskResultsStore? {
-        print("Loading Task Results from file \(TaskResultsStore.ArchiveURL.path!)")
-        if let savedTaskResults = NSKeyedUnarchiver.unarchiveObjectWithFile(TaskResultsStore.ArchiveURL.path!) as? TaskResultsStore {
-            return savedTaskResults
-        }
-        return nil
-    }
-
+//    // MARK: NSCoding
+//    
+//    func saveTaskResults() {
+//        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(taskResultsStore, toFile: TaskResultsStore.ArchiveURL.path!)
+//        if !isSuccessfulSave {
+//            print("Failed to save task results...")
+//        }
+//    }
+//    
+//    func loadTaskResults() -> TaskResultsStore? {
+//        print("Loading Task Results from file \(TaskResultsStore.ArchiveURL.path!)")
+//        if let savedTaskResults = NSKeyedUnarchiver.unarchiveObjectWithFile(TaskResultsStore.ArchiveURL.path!) as? TaskResultsStore {
+//            return savedTaskResults
+//        }
+//        return nil
+//    }
+//    
+//
+    
     
 }

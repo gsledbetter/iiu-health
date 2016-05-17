@@ -27,6 +27,7 @@ class ResultParser {
             }
         }
         
+        
         return nil
         
     }
@@ -185,7 +186,6 @@ class ResultParser {
                 
             }
         }
-        
         
     }
     
