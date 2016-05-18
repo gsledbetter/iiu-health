@@ -23,6 +23,8 @@ class TaskResults {
             taskResultsStore = TaskResultsStore()
         }
         
+        taskResultsStore.pruneData()
+        saveTaskResults()
     }
     
     // MARK: NSCoding

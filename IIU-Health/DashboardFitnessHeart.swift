@@ -11,6 +11,7 @@ import ResearchKit
 
 class DashboardFitnessHeart: UIViewController, ORKGraphChartViewDataSource {
 
+    @IBOutlet weak var lblMinMax: UILabel!
     @IBOutlet weak var lineGraphView: ORKLineGraphChartView!
     var dateFormatter:NSDateFormatter
     
@@ -39,7 +40,9 @@ class DashboardFitnessHeart: UIViewController, ORKGraphChartViewDataSource {
         lineGraphView.showsHorizontalReferenceLines = true
         lineGraphView.showsVerticalReferenceLines = true
         lineGraphView.scrubberLineColor = UIColor.redColor()
+        lblMinMax.text = "Min Steps = \(taskResultsStore.minHeartRate), Max Steps = \(taskResultsStore.maxHeartRate)"
         
+
         
     }
     
@@ -65,7 +68,7 @@ class DashboardFitnessHeart: UIViewController, ORKGraphChartViewDataSource {
     
     // Sets the maximum value on the y axis
     func maximumValueForGraphChartView(graphChartView: ORKGraphChartView) -> CGFloat {
-        return 160
+        return CGFloat(taskResultsStore.maxHeartRate)
     }
     
     // Sets the minimum value on the y axis

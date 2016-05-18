@@ -22,22 +22,22 @@ class TaskLeaveStudyCell: UIViewController {
     }
     
     override func viewDidLoad() {
-        lblSummary.text = "Select this task to leave the study and delete all your study data."
+        lblSummary.text = "Select to leave the study and delete all your study data."
         updateCell()
     }
     
     func updateCell() {
         if TaskResults.sharedInstance.taskResultsStore.consentComplete {
-            lblStatus.text = "Completed"
+            lblStatus.text = ""
         } else {
-            lblStatus.text = "Not Done"
+            lblStatus.text = ""
             
         }
         
     }
     
     func taskComplete() {
-        TaskResults.sharedInstance.taskResultsStore.consentComplete = true
+        //TaskResults.sharedInstance.taskResultsStore.consentComplete = true
         updateCell()
     }
     
