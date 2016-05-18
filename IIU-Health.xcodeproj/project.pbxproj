@@ -16,6 +16,9 @@
 		3754630A1CD39559007E4C44 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 375463071CD39559007E4C44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3754630B1CD39559007E4C44 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375463081CD39559007E4C44 /* ResearchKit.framework */; };
 		3754630C1CD39559007E4C44 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 375463081CD39559007E4C44 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37547A061CEBCFC2003F495B /* DashboardTasksCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37547A051CEBCFC2003F495B /* DashboardTasksCompleted.swift */; };
+		37547A081CEBD9F2003F495B /* DashboardFitnessPed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37547A071CEBD9F2003F495B /* DashboardFitnessPed.swift */; };
+		37547A0A1CEC159C003F495B /* DashboardFitnessHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37547A091CEC159C003F495B /* DashboardFitnessHeart.swift */; };
 		3768E18D1CBEC6E5002E4A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3768E18B1CBEC6E5002E4A1E /* Main.storyboard */; };
 		3768E18F1CBEC6E5002E4A1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3768E18E1CBEC6E5002E4A1E /* Assets.xcassets */; };
 		3768E1921CBEC6E5002E4A1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3768E1901CBEC6E5002E4A1E /* LaunchScreen.storyboard */; };
@@ -61,6 +64,9 @@
 		3752A84C1CC64EE00088863C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		375463071CD39559007E4C44 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		375463081CD39559007E4C44 /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
+		37547A051CEBCFC2003F495B /* DashboardTasksCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTasksCompleted.swift; sourceTree = "<group>"; };
+		37547A071CEBD9F2003F495B /* DashboardFitnessPed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardFitnessPed.swift; sourceTree = "<group>"; };
+		37547A091CEC159C003F495B /* DashboardFitnessHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardFitnessHeart.swift; sourceTree = "<group>"; };
 		3768E1841CBEC6E5002E4A1E /* IIU-Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IIU-Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3768E18C1CBEC6E5002E4A1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3768E18E1CBEC6E5002E4A1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 				3768E18E1CBEC6E5002E4A1E /* Assets.xcassets */,
 				37B44DAE1CBED01500569716 /* ConsentDocument.swift */,
 				37B44DAF1CBED01500569716 /* ConsentTask.swift */,
+				37547A091CEC159C003F495B /* DashboardFitnessHeart.swift */,
+				37547A071CEBD9F2003F495B /* DashboardFitnessPed.swift */,
+				37547A051CEBCFC2003F495B /* DashboardTasksCompleted.swift */,
 				3752A84C1CC64EE00088863C /* DashboardViewController.swift */,
 				37B44DB91CBED07100569716 /* FitnessCheckTask.swift */,
 				37A30B421CC0373000F8BADB /* HealthKitManager.swift */,
@@ -141,13 +150,13 @@
 				37B44DB51CBED06900569716 /* SurveyTask.swift */,
 				37C6E2EB1CDD29D300DD4967 /* TaskBar.storyboard */,
 				3739A6E51CE3BD8F008973B8 /* TaskConsentCell.swift */,
+				371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */,
 				3739A6E31CE3B367008973B8 /* TaskHeaderCell.swift */,
 				37DD7A6F1CE98D380068D4A8 /* TaskResults.swift */,
 				377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */,
 				37F886E01CDA6DE3005E277E /* TasksTableViewController.swift */,
-				37B44DB81CBED07100569716 /* ViewController.swift */,
-				371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */,
 				371FB7F41CEAC16500BC03A4 /* TaskSurveyCell.swift */,
+				37B44DB81CBED07100569716 /* ViewController.swift */,
 			);
 			path = "IIU-Health";
 			sourceTree = "<group>";
@@ -251,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B44DB61CBED06900569716 /* MicrophoneTask.swift in Sources */,
+				37547A081CEBD9F2003F495B /* DashboardFitnessPed.swift in Sources */,
 				37DD7A701CE98D380068D4A8 /* TaskResults.swift in Sources */,
 				37B44DAD1CBECFEC00569716 /* AppDelegate.swift in Sources */,
 				378278411CC1854D00F344FF /* ResultsParser.swift in Sources */,
@@ -261,6 +271,7 @@
 				37F886E11CDA6DE3005E277E /* TasksTableViewController.swift in Sources */,
 				37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */,
 				37B44DBB1CBED07100569716 /* FitnessCheckTask.swift in Sources */,
+				37547A0A1CEC159C003F495B /* DashboardFitnessHeart.swift in Sources */,
 				3739A6E41CE3B367008973B8 /* TaskHeaderCell.swift in Sources */,
 				371FB7F31CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift in Sources */,
 				37B44DB21CBED01500569716 /* ConsentTask.swift in Sources */,
@@ -270,6 +281,7 @@
 				37FB303E1CCDD3AD00DB86BB /* PedometerData.swift in Sources */,
 				37B44DBA1CBED07100569716 /* ViewController.swift in Sources */,
 				37B44DB11CBED01500569716 /* ConsentDocument.swift in Sources */,
+				37547A061CEBCFC2003F495B /* DashboardTasksCompleted.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

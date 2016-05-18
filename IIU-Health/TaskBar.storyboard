@@ -5,63 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard-->
-        <scene sceneID="RQW-nT-mVg">
-            <objects>
-                <tableViewController id="50J-DM-mGM" customClass="DashboardViewController" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ovx-h5-6qa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="7rt-HH-HnH">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="230" id="OhU-Zc-Jac">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OhU-Zc-Jac" id="Cdo-j5-fVS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4D-Mk-udK" customClass="ORKPieChartView">
-                                                    <rect key="frame" x="8" y="15" width="584" height="199"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="370" id="CFM-d5-3IW">
-                                        <rect key="frame" x="0.0" y="230" width="600" height="370"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CFM-d5-3IW" id="whe-VX-z7a">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sXd-V8-FUg" customClass="ORKLineGraphChartView">
-                                                    <rect key="frame" x="8" y="8" width="584" height="354"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="50J-DM-mGM" id="qdN-pL-PUX"/>
-                            <outlet property="delegate" destination="50J-DM-mGM" id="gpi-63-rhe"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Dashboard" id="hWf-5i-sXG"/>
-                    <connections>
-                        <outlet property="lineGraphView" destination="sXd-V8-FUg" id="ccL-gb-pP4"/>
-                        <outlet property="pieChartView" destination="S4D-Mk-udK" id="lNo-pO-M7J"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iL7-Xx-8yh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1539" y="56"/>
-        </scene>
         <!--Tasks-->
         <scene sceneID="JuB-Xl-jd7">
             <objects>
@@ -176,7 +119,7 @@
                             <outlet property="delegate" destination="Xvd-Ua-bwP" id="8gV-Mj-dSR"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Tasks" image="Checkmark-1" id="iEn-5I-KcH"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="102-walk" id="iEn-5I-KcH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXs-qo-y67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +136,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Xvd-Ua-bwP" kind="relationship" relationship="viewControllers" id="NeD-C7-gMk"/>
-                        <segue destination="50J-DM-mGM" kind="relationship" relationship="viewControllers" id="1eS-Sc-hge"/>
+                        <segue destination="5ME-3g-4Ge" kind="relationship" relationship="viewControllers" id="BYO-t7-MIA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u00-MM-Lwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -250,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1b5-iV-Lkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="300.5"/>
+            <point key="canvasLocation" x="2336" y="406.5"/>
         </scene>
         <!--Consent Cell View-->
         <scene sceneID="FQ2-zG-2cn">
@@ -433,8 +376,218 @@
             </objects>
             <point key="canvasLocation" x="2336" y="999"/>
         </scene>
+        <!--Dashboard-->
+        <scene sceneID="hUz-4H-yLH">
+            <objects>
+                <tableViewController id="5ME-3g-4Ge" customClass="DashboardViewController" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EJW-cG-riZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="RhA-54-HTq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="230" id="FSs-wq-zte">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FSs-wq-zte" id="qGb-WH-xXP">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ni-fy-4qJ">
+                                                    <rect key="frame" x="8" y="28" width="584" height="194"/>
+                                                    <connections>
+                                                        <segue destination="iWf-D0-cYA" kind="embed" id="mYc-1N-wl6"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="leading" secondItem="qGb-WH-xXP" secondAttribute="leadingMargin" id="1jo-XG-b3N"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="top" secondItem="qGb-WH-xXP" secondAttribute="topMargin" id="1rQ-cS-haD"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="top" secondItem="qGb-WH-xXP" secondAttribute="topMargin" id="2XK-kX-S5g"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="bottom" secondItem="qGb-WH-xXP" secondAttribute="bottomMargin" id="3vD-JU-mri"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="trailing" secondItem="qGb-WH-xXP" secondAttribute="trailingMargin" id="4Jo-Aa-hWi"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="trailing" secondItem="qGb-WH-xXP" secondAttribute="trailingMargin" id="CHu-6O-X3b"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7ni-fy-4qJ" secondAttribute="trailing" id="EGv-VX-zW2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7ni-fy-4qJ" secondAttribute="bottom" id="Jre-tv-fXo"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="bottom" secondItem="qGb-WH-xXP" secondAttribute="bottomMargin" id="PZS-HC-lRs"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="leading" secondItem="qGb-WH-xXP" secondAttribute="leadingMargin" id="Qoz-VQ-yoC"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="leading" secondItem="qGb-WH-xXP" secondAttribute="leadingMargin" id="am0-0R-YiO"/>
+                                                <constraint firstItem="7ni-fy-4qJ" firstAttribute="top" secondItem="qGb-WH-xXP" secondAttribute="topMargin" constant="20" id="gpF-1z-Ish"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="1jo-XG-b3N"/>
+                                                    <exclude reference="1rQ-cS-haD"/>
+                                                    <exclude reference="2XK-kX-S5g"/>
+                                                    <exclude reference="CHu-6O-X3b"/>
+                                                    <exclude reference="EGv-VX-zW2"/>
+                                                    <exclude reference="Jre-tv-fXo"/>
+                                                    <exclude reference="PZS-HC-lRs"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="370" id="tsx-OS-b7n">
+                                        <rect key="frame" x="0.0" y="230" width="600" height="370"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tsx-OS-b7n" id="f3c-Fv-ci0">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWq-ai-Wdl">
+                                                    <rect key="frame" x="8" y="8" width="584" height="354"/>
+                                                    <connections>
+                                                        <segue destination="2Nf-KB-fIT" kind="embed" id="o32-il-ia2"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QWq-ai-Wdl" firstAttribute="top" secondItem="f3c-Fv-ci0" secondAttribute="topMargin" id="O3I-7X-9e0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QWq-ai-Wdl" secondAttribute="trailing" id="Pmm-3J-jez"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QWq-ai-Wdl" secondAttribute="bottom" id="ZxD-Wu-tB9"/>
+                                                <constraint firstItem="QWq-ai-Wdl" firstAttribute="leading" secondItem="f3c-Fv-ci0" secondAttribute="leadingMargin" id="pCo-FJ-EVU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="370" id="fHy-ql-7U0">
+                                        <rect key="frame" x="0.0" y="600" width="600" height="370"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHy-ql-7U0" id="6Mc-Rs-v8K">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-ff-kLQ">
+                                                    <rect key="frame" x="8" y="8" width="584" height="354"/>
+                                                    <connections>
+                                                        <segue destination="jUa-M6-bO4" kind="embed" id="aRa-cD-Z2b"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TFn-ff-kLQ" firstAttribute="top" secondItem="6Mc-Rs-v8K" secondAttribute="topMargin" id="89s-bX-Rcl"/>
+                                                <constraint firstItem="TFn-ff-kLQ" firstAttribute="leading" secondItem="6Mc-Rs-v8K" secondAttribute="leadingMargin" id="9Kb-cj-GXu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TFn-ff-kLQ" secondAttribute="bottom" id="DIS-cI-Opt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TFn-ff-kLQ" secondAttribute="trailing" id="e1O-dM-PRf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5ME-3g-4Ge" id="cOB-86-0RB"/>
+                            <outlet property="delegate" destination="5ME-3g-4Ge" id="Z1n-C4-Ejb"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="122-stats" id="0FJ-lH-ThY"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGk-tG-9WY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045" y="-260"/>
+        </scene>
+        <!--Dashboard Tasks Completed-->
+        <scene sceneID="TVl-rQ-LmU">
+            <objects>
+                <viewController id="iWf-D0-cYA" customClass="DashboardTasksCompleted" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ob9-s6-WqZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="PD3-Bd-Jv4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xzm-u5-8a7">
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="194"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQY-c9-pBX" customClass="ORKPieChartView">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="194"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oQY-c9-pBX" firstAttribute="leading" secondItem="xzm-u5-8a7" secondAttribute="leadingMargin" constant="-20" id="2Fj-J8-bCd"/>
+                            <constraint firstItem="PD3-Bd-Jv4" firstAttribute="top" secondItem="oQY-c9-pBX" secondAttribute="bottom" id="3P6-cm-18k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oQY-c9-pBX" secondAttribute="trailing" constant="-20" id="Ikt-lN-X9O"/>
+                            <constraint firstItem="oQY-c9-pBX" firstAttribute="top" secondItem="ob9-s6-WqZ" secondAttribute="bottom" id="cQa-VB-Pec"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pieChartView" destination="oQY-c9-pBX" id="bJS-1b-kFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMR-ux-UTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3059" y="-615"/>
+        </scene>
+        <!--Dashboard Fitness Ped-->
+        <scene sceneID="vBU-Wt-HcS">
+            <objects>
+                <viewController id="2Nf-KB-fIT" customClass="DashboardFitnessPed" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WSA-gM-QLC"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ut-PK-clt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9rT-Ke-PKC">
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="354"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-sM-EIE" customClass="ORKLineGraphChartView">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="354"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ckk-sM-EIE" firstAttribute="leading" secondItem="9rT-Ke-PKC" secondAttribute="leadingMargin" constant="-20" id="ANO-30-JFM"/>
+                            <constraint firstItem="9ut-PK-clt" firstAttribute="top" secondItem="ckk-sM-EIE" secondAttribute="bottom" id="fJF-09-lug"/>
+                            <constraint firstItem="ckk-sM-EIE" firstAttribute="top" secondItem="WSA-gM-QLC" secondAttribute="bottom" id="jID-NR-Ihr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ckk-sM-EIE" secondAttribute="trailing" constant="-20" id="wGU-2T-oPq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lineGraphView" destination="ckk-sM-EIE" id="zmu-GP-sf4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwy-eY-0Vz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3059" y="-260"/>
+        </scene>
+        <!--Dashboard Fitness Heart-->
+        <scene sceneID="WND-7B-Jsg">
+            <objects>
+                <viewController id="jUa-M6-bO4" customClass="DashboardFitnessHeart" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cPK-dr-UL4"/>
+                        <viewControllerLayoutGuide type="bottom" id="anw-uB-qpi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LWg-uX-kIV">
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="354"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THF-Nf-qV3" customClass="ORKLineGraphChartView">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="354"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="anw-uB-qpi" firstAttribute="top" secondItem="THF-Nf-qV3" secondAttribute="bottom" id="EEk-MC-IWK"/>
+                            <constraint firstItem="THF-Nf-qV3" firstAttribute="top" secondItem="cPK-dr-UL4" secondAttribute="bottom" id="LkC-cK-g9W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="THF-Nf-qV3" secondAttribute="trailing" constant="-20" id="aJs-ez-Efy"/>
+                            <constraint firstItem="THF-Nf-qV3" firstAttribute="leading" secondItem="LWg-uX-kIV" secondAttribute="leadingMargin" constant="-20" id="f6F-ws-meu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lineGraphView" destination="THF-Nf-qV3" id="ZLw-eV-z75"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXB-Ae-SRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3059" y="183"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Checkmark-1" width="30" height="30"/>
+        <image name="102-walk" width="14" height="27"/>
+        <image name="122-stats" width="27" height="19"/>
     </resources>
 </document>
