@@ -282,6 +282,7 @@
                     <connections>
                         <outlet property="lblStatus" destination="8MS-mw-ear" id="Y2M-3m-UX2"/>
                         <outlet property="lblSummary" destination="SNG-eO-gLI" id="LnM-x8-0Yc"/>
+                        <outlet property="statusView" destination="YqZ-Aa-jzS" id="sj3-uB-b77"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dio-KN-C4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -328,6 +329,7 @@
                     <connections>
                         <outlet property="lblStatus" destination="haB-eb-D5e" id="a7H-Am-UXV"/>
                         <outlet property="lblSummary" destination="sVE-Ul-LjV" id="xB0-bA-lUB"/>
+                        <outlet property="statusView" destination="Vgt-2I-IYB" id="zc7-y0-AFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ap9-mX-QoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,7 +339,7 @@
         <!--Leave Study Cell-->
         <scene sceneID="f3P-HQ-UF7">
             <objects>
-                <viewController title="Leave Study Cell" id="uw9-N4-vcp" sceneMemberID="viewController">
+                <viewController title="Leave Study Cell" id="uw9-N4-vcp" customClass="TaskLeaveStudyCell" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1uC-io-F3a"/>
                         <viewControllerLayoutGuide type="bottom" id="eVm-ZN-dUY"/>
@@ -371,6 +373,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="lblStatus" destination="E3W-uP-z2I" id="eUY-pO-sUO"/>
+                        <outlet property="lblSummary" destination="REz-AT-w8E" id="KdS-th-QoX"/>
+                        <outlet property="statusView" destination="ato-yb-7et" id="iAk-8J-0sr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5D-7M-E9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -29,8 +29,10 @@ class TaskConsentCell: UIViewController {
     func updateCell() {
         if TaskResults.sharedInstance.taskResultsStore.consentComplete {
             lblStatus.text = "Completed"
+            statusView.backgroundColor = UIColor.redColor()
         } else {
             lblStatus.text = "Not Done"
+            statusView.backgroundColor = UIColor.greenColor()
             
         }
         

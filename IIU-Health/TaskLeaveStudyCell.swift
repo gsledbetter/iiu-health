@@ -1,15 +1,15 @@
 //
-//  TaskSurveyCell.swift
+//  TaskLeaveStudyCell.swift
 //  IIU-Health
 //
-//  Created by Greg Ledbetter on 5/16/16.
+//  Created by Greg Ledbetter on 5/18/16.
 //  Copyright © 2016 IIU. All rights reserved.
 //
-import Foundation
+
 import UIKit
 
-class TaskSurveyCell: UIViewController {
-    
+class TaskLeaveStudyCell: UIViewController {
+
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var lblSummary: UILabel!
     @IBOutlet weak var statusView: UIView!
@@ -22,26 +22,24 @@ class TaskSurveyCell: UIViewController {
     }
     
     override func viewDidLoad() {
-        lblSummary.text = "Select this task to complete the survey part of the study."
+        lblSummary.text = "Select this task to leave the study and delete all your study data."
         updateCell()
     }
     
     func updateCell() {
-        if TaskResults.sharedInstance.taskResultsStore.surveyComplete {
+        if TaskResults.sharedInstance.taskResultsStore.consentComplete {
             lblStatus.text = "Completed"
-            statusView.backgroundColor = UIColor.redColor()
         } else {
             lblStatus.text = "Not Done"
-            statusView.backgroundColor = UIColor.greenColor()
-
+            
         }
         
     }
     
     func taskComplete() {
-        TaskResults.sharedInstance.taskResultsStore.surveyComplete = true
+        TaskResults.sharedInstance.taskResultsStore.consentComplete = true
         updateCell()
     }
     
-}
 
+}

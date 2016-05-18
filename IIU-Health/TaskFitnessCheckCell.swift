@@ -30,9 +30,11 @@ class TaskFitnessCheckCell: UIViewController {
     func updateCell() {
         if TaskResults.sharedInstance.taskResultsStore.fitnessCheckComplete {
             lblStatus.text = "Completed"
+            statusView.backgroundColor = UIColor.redColor()
+
         } else {
             lblStatus.text = "Not Done"
-            
+            statusView.backgroundColor = UIColor.greenColor()
         }
         
     }

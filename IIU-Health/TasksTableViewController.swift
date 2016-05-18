@@ -38,9 +38,6 @@ class TasksTableViewController: UITableViewController, ORKTaskViewControllerDele
         self.title = "Tasks"
         self.tabBarController?.delegate = self
         
-        
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,6 +81,21 @@ class TasksTableViewController: UITableViewController, ORKTaskViewControllerDele
             
         case 4: // leave study
             print("Leave study selected.")
+            let alertController = UIAlertController(title: "Leave IIU Health Study", message: "This action will delete all health data that this study has created.", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+                print("you have pressed the Cancel button")
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                print("you have pressed OK button")
+                self.taskResultsStore.clearData()
+                TaskResults.sharedInstance.saveTaskResults()
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
 
         default:
             print("Invalid value for Tasks uitableview indexPath.row \(indexPath.row)")

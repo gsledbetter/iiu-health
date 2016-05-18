@@ -125,5 +125,15 @@ class TaskResultsStore: NSObject, NSCoding {
         return nil
     }
     
-
+    func clearData() {
+//        self.firstName = ""
+//        self.lastName = ""
+//        self.pedData.removeAll()
+//        self.heartData.removeAll()
+//        self.consentComplete = false
+//        self.fitnessCheckComplete = false
+//        self.surveyComplete = false
+  
+    }
+    
 }
