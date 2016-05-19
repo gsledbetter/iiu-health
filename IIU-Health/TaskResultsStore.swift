@@ -15,6 +15,7 @@ class TaskResultsStore: NSObject, NSCoding {
     var lastName: String
     var pedData:[PedometerData]
     var heartData:[HeartRateData]
+    var feelingData:[FeelingData]
     var resultsParser:ResultParser
     var consentComplete:Bool
     var fitnessCheckComplete:Bool
@@ -36,6 +37,7 @@ class TaskResultsStore: NSObject, NSCoding {
         lastName = ""
         pedData = [PedometerData]()
         heartData = [HeartRateData]()
+        feelingData = [FeelingData]()
         consentComplete = false
         fitnessCheckComplete = false
         surveyComplete = false
@@ -48,13 +50,14 @@ class TaskResultsStore: NSObject, NSCoding {
 
     }
     
-    init(firstName: String, lastName:String, pedData:[PedometerData], heartData:[HeartRateData], consentComplete:Bool, fitnessCheckComplete:Bool, surveyComplete:Bool,
+    init(firstName: String, lastName:String, pedData:[PedometerData], heartData:[HeartRateData], feelingData:[FeelingData], consentComplete:Bool, fitnessCheckComplete:Bool, surveyComplete:Bool,
          maxSteps:Int, minSteps:Int, maxHeartRate:Int, minHeartRate:Int) {
         
         self.firstName = firstName
         self.lastName = lastName
         self.pedData = pedData
         self.heartData = heartData
+        self.feelingData = feelingData
         self.consentComplete = consentComplete
         self.fitnessCheckComplete = fitnessCheckComplete
         self.surveyComplete = surveyComplete
@@ -70,13 +73,15 @@ class TaskResultsStore: NSObject, NSCoding {
         guard let firstName = decoder.decodeObjectForKey("firstName") as? String,
             let lastName = decoder.decodeObjectForKey("lastName") as? String,
             let pedData = decoder.decodeObjectForKey("pedData") as? [PedometerData],
-            let heartData = decoder.decodeObjectForKey("heartData") as? [HeartRateData]
+            let heartData = decoder.decodeObjectForKey("heartData") as? [HeartRateData],
+            let feelingData = decoder.decodeObjectForKey("feelingData") as? [FeelingData]
             else { return nil }
         self.init(
         firstName: firstName,
         lastName: lastName,
         pedData: pedData,
         heartData: heartData,
+        feelingData: feelingData,
         consentComplete: decoder.decodeBoolForKey("consentComplete"),
         fitnessCheckComplete: decoder.decodeBoolForKey("fitnessCheckComplete"),
         surveyComplete: decoder.decodeBoolForKey("surveyComplete"),
@@ -94,6 +99,7 @@ class TaskResultsStore: NSObject, NSCoding {
         coder.encodeObject(self.lastName, forKey: "lastName")
         coder.encodeObject(self.pedData, forKey:"pedData")
         coder.encodeObject(self.heartData, forKey:"heartData")
+        coder.encodeObject(self.feelingData, forKey:"feelingData")
         coder.encodeBool(self.consentComplete, forKey: "consentComplete")
         coder.encodeBool(self.fitnessCheckComplete, forKey: "fitnessCheckComplete")
         coder.encodeBool(self.surveyComplete, forKey: "surveyComplete")
@@ -113,6 +119,15 @@ class TaskResultsStore: NSObject, NSCoding {
             addHeartData(heartData)
         }
         
+    }
+    
+    func storeSurveyData(feeling:Int) {
+        let date = NSDate()
+        let newFeelingData = FeelingData(feeling: feeling, timestamp: date)
+        self.feelingData.append(newFeelingData)
+        if self.feelingData.count > MAX_RESULTS {
+            self.feelingData.removeAtIndex(0)
+        }
     }
     
     func addPedData(pedData:PedometerData) {
@@ -165,6 +180,10 @@ class TaskResultsStore: NSObject, NSCoding {
         return heartData.count
     }
     
+    func getFeelingDataCount() -> Int {
+        return feelingData.count
+    }
+    
     
     func getPedDataAtIndex(index:Int) -> PedometerData? {
         
@@ -182,14 +201,23 @@ class TaskResultsStore: NSObject, NSCoding {
         return nil
     }
     
+    func getFeelingAtIndex(index:Int) -> FeelingData? {
+        
+        if  index < feelingData.count {
+            return feelingData[index]
+        }
+        return nil
+    }
+    
     func clearData() {
-//        self.firstName = ""
-//        self.lastName = ""
-//        self.pedData.removeAll()
-//        self.heartData.removeAll()
-//        self.consentComplete = false
-//        self.fitnessCheckComplete = false
-//        self.surveyComplete = false
+        self.firstName = ""
+        self.lastName = ""
+        self.pedData.removeAll()
+        self.heartData.removeAll()
+        self.feelingData.removeAll()
+        self.consentComplete = false
+        self.fitnessCheckComplete = false
+        self.surveyComplete = false
   
     }
     
@@ -200,6 +228,10 @@ class TaskResultsStore: NSObject, NSCoding {
         }
         while self.heartData.count > MAX_RESULTS {
             self.heartData.removeAtIndex(0)
+            
+        }
+        while self.feelingData.count > MAX_RESULTS {
+            self.feelingData.removeAtIndex(0)
             
         }
         findStepsMinMax()

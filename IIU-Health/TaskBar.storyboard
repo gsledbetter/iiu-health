@@ -81,7 +81,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0X-Fr-uUF">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                     <connections>
-                                                        <segue destination="dRV-mn-jk5" kind="embed" id="GHk-MU-TAr"/>
+                                                        <segue destination="dRV-mn-jk5" kind="embed" identifier="taskSurveyCellEmbed" id="GHk-MU-TAr"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -224,7 +224,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDs-id-SB2">
-                                <rect key="frame" x="230" y="8" width="42" height="21"/>
+                                <rect key="frame" x="230" y="8" width="120" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -479,6 +479,28 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Survery Feeling Cell" rowHeight="460" id="OdJ-AD-ITd">
+                                        <rect key="frame" x="0.0" y="1150" width="600" height="460"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OdJ-AD-ITd" id="ZgB-pX-pA8">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="460"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbe-Xy-V4r">
+                                                    <rect key="frame" x="8" y="8" width="584" height="354"/>
+                                                    <connections>
+                                                        <segue destination="RBf-Hr-cFO" kind="embed" id="Auk-Tb-fKP"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zbe-Xy-V4r" firstAttribute="leading" secondItem="ZgB-pX-pA8" secondAttribute="leadingMargin" id="Pqp-iP-qt9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zbe-Xy-V4r" secondAttribute="bottom" id="Q9S-Mz-YXI"/>
+                                                <constraint firstItem="zbe-Xy-V4r" firstAttribute="top" secondItem="ZgB-pX-pA8" secondAttribute="topMargin" id="YoL-VV-awD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zbe-Xy-V4r" secondAttribute="trailing" id="ydY-lH-aSk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -629,6 +651,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXB-Ae-SRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3059" y="183"/>
+        </scene>
+        <!--Dashboard Survey Feeling Cell-->
+        <scene sceneID="fue-8W-gsk">
+            <objects>
+                <viewController id="RBf-Hr-cFO" customClass="DashboardSurveyFeelingCell" customModule="IIU_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2s8-Eg-ctm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zrn-qU-rDZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pai-iM-TPj">
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="354"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1q-Qy-kdR" customClass="ORKLineGraphChartView">
+                                <rect key="frame" x="0.0" y="60" width="584" height="294"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeling After Fitness Walk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaS-YY-fRJ">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exhausted = 3, Slightwinded =2, Fine = 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVi-7S-oQJ">
+                                <rect key="frame" x="0.0" y="25" width="584" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SaS-YY-fRJ" secondAttribute="trailing" constant="-20" id="FAi-HS-uZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L1q-Qy-kdR" secondAttribute="trailing" constant="-20" id="HgI-QS-CBs"/>
+                            <constraint firstItem="SaS-YY-fRJ" firstAttribute="leading" secondItem="Pai-iM-TPj" secondAttribute="leadingMargin" constant="-20" id="SFU-VE-Dve"/>
+                            <constraint firstItem="Zrn-qU-rDZ" firstAttribute="top" secondItem="L1q-Qy-kdR" secondAttribute="bottom" id="cfy-xj-7Wh"/>
+                            <constraint firstItem="SaS-YY-fRJ" firstAttribute="top" secondItem="2s8-Eg-ctm" secondAttribute="bottom" id="e3k-XN-wVa"/>
+                            <constraint firstItem="yVi-7S-oQJ" firstAttribute="leading" secondItem="Pai-iM-TPj" secondAttribute="leadingMargin" constant="-20" id="eCJ-nG-puM"/>
+                            <constraint firstItem="yVi-7S-oQJ" firstAttribute="top" secondItem="SaS-YY-fRJ" secondAttribute="bottom" constant="4" id="hI0-IU-Bed"/>
+                            <constraint firstItem="L1q-Qy-kdR" firstAttribute="top" secondItem="yVi-7S-oQJ" secondAttribute="bottom" constant="18" id="lbv-aj-llM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVi-7S-oQJ" secondAttribute="trailing" constant="-20" id="ou2-aw-yXL"/>
+                            <constraint firstItem="L1q-Qy-kdR" firstAttribute="leading" secondItem="Pai-iM-TPj" secondAttribute="leadingMargin" constant="-20" id="vvy-vD-hr9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lineGraphView" destination="L1q-Qy-kdR" id="Ycq-TB-dgt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0pl-1F-1j3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3052" y="645"/>
         </scene>
     </scenes>
     <resources>

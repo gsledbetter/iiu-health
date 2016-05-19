@@ -1,5 +1,7 @@
 import ResearchKit
 
+let SurveyTaskId = "SurveyTaskId"
+
 public class SurveyTask: NSObject, ORKTask {
     
     let introStepID = "intro_step"
@@ -7,7 +9,7 @@ public class SurveyTask: NSObject, ORKTask {
     let feelingStepID = "feeling_step"
     let summaryStepID = "summary_step"
     
-    public var identifier: String { get { return "survey"} }
+    public var identifier: String { get { return SurveyTaskId} }
     
     public func stepBeforeStep(step: ORKStep?, withResult result: ORKTaskResult) -> ORKStep? {
         
@@ -88,15 +90,29 @@ public class SurveyTask: NSObject, ORKTask {
         return nil
     }
     
+    func findFeeling(result:ORKTaskResult) -> Int {
+        if let stepResult = result.resultForIdentifier(feelingStepID) as? ORKStepResult,
+            let subResults = stepResult.results
+            where subResults.count > 0,
+            let textQuestionResult = subResults[0] as? ORKChoiceQuestionResult {
+            
+            return textQuestionResult.choiceAnswers![0] as! Int
+        }
+        return 0
+        
+
+        
+    }
+    
     func feelingStep(name: String?) -> ORKStep {
         
         let feelingQuestionStepTitle = "How do you feel?"
         
         
         let textChoices = [
-            ORKTextChoice(text: "Exhausted", value: 0),
-            ORKTextChoice(text: "Slightly winded", value: 1),
-            ORKTextChoice(text: "Fine", value: 2)
+            ORKTextChoice(text: "Exhausted", value: 3),
+            ORKTextChoice(text: "Slightly winded", value: 2),
+            ORKTextChoice(text: "Fine", value: 1)
         ]
         let feelingAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         return ORKQuestionStep(identifier: feelingStepID, title: feelingQuestionStepTitle, answer: feelingAnswerFormat)

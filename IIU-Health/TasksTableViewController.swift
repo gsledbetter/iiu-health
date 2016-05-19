@@ -13,11 +13,13 @@ class TasksTableViewController: UITableViewController, ORKTaskViewControllerDele
 
     var taskResultsStore:TaskResultsStore
     var consentCellVC:TaskConsentCell?
+    var surveryCellVC:TaskSurveyCell?
 
     required init(coder aDecoder: NSCoder) {
         
         taskResultsStore = TaskResults.sharedInstance.taskResultsStore
         consentCellVC = nil
+        surveryCellVC = nil
         super.init(coder: aDecoder)!
         
     }
@@ -119,7 +121,11 @@ class TasksTableViewController: UITableViewController, ORKTaskViewControllerDele
             
             consentCellVC = segue.destinationViewController as? TaskConsentCell
             
-        } 
+        } else if segue.identifier == "taskSurveyCellEmbed" {
+            
+            surveryCellVC = segue.destinationViewController as? TaskSurveyCell
+
+        }
     }
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
@@ -133,6 +139,12 @@ class TasksTableViewController: UITableViewController, ORKTaskViewControllerDele
         } else if taskViewController.task?.identifier == ConsentTaskId && reason == .Completed {
             consentCellVC!.taskComplete()
             TaskResults.sharedInstance.saveTaskResults()
+        } else if taskViewController.task?.identifier == SurveyTaskId && reason == .Completed {
+            let surveyTask = taskViewController.task as! SurveyTask
+            let feeling = surveyTask.findFeeling(taskViewController.result)
+            self.taskResultsStore.storeSurveyData(feeling)
+            print("Survey feeling = \(feeling)")
+            surveryCellVC!.taskComplete()
         }
         
         if reason != .Failed {

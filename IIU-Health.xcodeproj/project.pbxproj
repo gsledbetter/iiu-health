@@ -26,6 +26,8 @@
 		377F48E61CD79B9A0078C526 /* TaskResultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */; };
 		377F48E81CD7E8920078C526 /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F48E71CD7E8920078C526 /* HeartRateData.swift */; };
 		378278411CC1854D00F344FF /* ResultsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378278401CC1854D00F344FF /* ResultsParser.swift */; };
+		378817BD1CECEF7400B21192 /* DashboardSurveyFeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378817BC1CECEF7400B21192 /* DashboardSurveyFeelingCell.swift */; };
+		378817BF1CECF1F300B21192 /* FeelingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378817BE1CECF1F300B21192 /* FeelingData.swift */; };
 		37A30B431CC0373000F8BADB /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30B421CC0373000F8BADB /* HealthKitManager.swift */; };
 		37AC2F231CC02C3F002BB6D5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AC2F221CC02C3F002BB6D5 /* HealthKit.framework */; };
 		37B44DAD1CBECFEC00569716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DAC1CBECFEC00569716 /* AppDelegate.swift */; };
@@ -77,6 +79,8 @@
 		377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResultsStore.swift; sourceTree = "<group>"; };
 		377F48E71CD7E8920078C526 /* HeartRateData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateData.swift; sourceTree = "<group>"; };
 		378278401CC1854D00F344FF /* ResultsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsParser.swift; sourceTree = "<group>"; };
+		378817BC1CECEF7400B21192 /* DashboardSurveyFeelingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardSurveyFeelingCell.swift; sourceTree = "<group>"; };
+		378817BE1CECF1F300B21192 /* FeelingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeelingData.swift; sourceTree = "<group>"; };
 		37A30B421CC0373000F8BADB /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		37AC2F221CC02C3F002BB6D5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		37AC2F241CC02C3F002BB6D5 /* IIU-Health.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "IIU-Health.entitlements"; sourceTree = "<group>"; };
@@ -136,8 +140,10 @@
 				37B44DAF1CBED01500569716 /* ConsentTask.swift */,
 				37547A091CEC159C003F495B /* DashboardFitnessHeart.swift */,
 				37547A071CEBD9F2003F495B /* DashboardFitnessPed.swift */,
+				378817BC1CECEF7400B21192 /* DashboardSurveyFeelingCell.swift */,
 				37547A051CEBCFC2003F495B /* DashboardTasksCompleted.swift */,
 				3752A84C1CC64EE00088863C /* DashboardViewController.swift */,
+				378817BE1CECF1F300B21192 /* FeelingData.swift */,
 				37B44DB91CBED07100569716 /* FitnessCheckTask.swift */,
 				37A30B421CC0373000F8BADB /* HealthKitManager.swift */,
 				377F48E71CD7E8920078C526 /* HeartRateData.swift */,
@@ -154,12 +160,12 @@
 				3739A6E51CE3BD8F008973B8 /* TaskConsentCell.swift */,
 				371FB7F21CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift */,
 				3739A6E31CE3B367008973B8 /* TaskHeaderCell.swift */,
+				37547A0B1CEC8368003F495B /* TaskLeaveStudyCell.swift */,
 				37DD7A6F1CE98D380068D4A8 /* TaskResults.swift */,
 				377F48E51CD79B9A0078C526 /* TaskResultsStore.swift */,
 				37F886E01CDA6DE3005E277E /* TasksTableViewController.swift */,
 				371FB7F41CEAC16500BC03A4 /* TaskSurveyCell.swift */,
 				37B44DB81CBED07100569716 /* ViewController.swift */,
-				37547A0B1CEC8368003F495B /* TaskLeaveStudyCell.swift */,
 			);
 			path = "IIU-Health";
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378817BD1CECEF7400B21192 /* DashboardSurveyFeelingCell.swift in Sources */,
 				37B44DB61CBED06900569716 /* MicrophoneTask.swift in Sources */,
 				37547A081CEBD9F2003F495B /* DashboardFitnessPed.swift in Sources */,
 				37DD7A701CE98D380068D4A8 /* TaskResults.swift in Sources */,
@@ -275,6 +282,7 @@
 				37FB30481CCE67FD00DB86BB /* PedDataStore.swift in Sources */,
 				37B44DBB1CBED07100569716 /* FitnessCheckTask.swift in Sources */,
 				37547A0A1CEC159C003F495B /* DashboardFitnessHeart.swift in Sources */,
+				378817BF1CECF1F300B21192 /* FeelingData.swift in Sources */,
 				3739A6E41CE3B367008973B8 /* TaskHeaderCell.swift in Sources */,
 				371FB7F31CEABFEE00BC03A4 /* TaskFitnessCheckCell.swift in Sources */,
 				37B44DB21CBED01500569716 /* ConsentTask.swift in Sources */,
